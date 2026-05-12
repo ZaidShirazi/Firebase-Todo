@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS File Linking -->
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+
+    <title>Todo List</title>
+  </head>
+
+  <body>
+    <main>
+      <div id="todoTitle">TODO LIST</div>
+      <div id="inputContainer">
+        <input
+          type="text"
+          id="todoInput"
+          placeholder="Add your new todo..."
+          autofocus
+          required
+          minlength="2"
+        />
+        <button type="button" id="addButton">
+          <img
+            src="./assets/images/plusIcon.svg"
+            alt="add icon image"
+            width="50px"
+          />
+        </button>
+
+        <button type="button" id="saveButton" onClick="updateTodo()">
+          Save
+        </button>
+      </div>
+
+      <div id="todoListContainer"></div>
+
+      <div id="clearButtonBox">
+        <button id="clearAll" onClick="deleteAllTodo()">Clear All</button>
+      </div>
+    </main>
+
+    <!-- JS File Linking -->
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

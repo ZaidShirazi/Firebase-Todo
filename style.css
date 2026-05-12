@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8d8ffe;
+}
+
+main {
+  /* border: 1px solid black; */
+  width: 500px;
+  height: 500px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  /* background-color: #F8F9FF;  */
+  background-color: #e0dfff;
+  border: none;
+  border-radius: 16px;
+}
+
+#todoTitle {
+  font-size: 1.5rem;
+  color: #1918a4;
+  font-weight: bold;
+}
+
+#inputContainer {
+  /* border: 1px solid red; */
+  display: flex;
+  /* justify-content: space-evenly; */
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  border-radius: 30px;
+}
+
+input {
+  flex: 1;
+  height: 42px;
+  padding: 0px 12px;
+  outline: transparent;
+  border: none;
+  border-radius: 30px;
+  background-color: #f3f3f6;
+  font-size: 1.1em;
+}
+
+input::placeholder {
+  color: #8d8ffe;
+  font-weight: 500;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#clearButtonBox {
+  width: 400px;
+  display: flex;
+  justify-content: flex-end;
+  display: none;
+}
+
+#clearAll {
+  background-color: #ff4d4d;
+  color: white;
+  height: 40px;
+  width: 110px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#saveButton {
+  display: none;
+  background-color: rgb(92, 36, 238);
+  color: white;
+  font-size: 14px;
+  border-radius: 12px;
+  height: 40px;
+  width: 110px;
+}
+
+#todoListContainer {
+  width: 400px;
+  height: 350px;
+  background-image: url("./assets/images/todoPic.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+  /* border: 1px solid red; */
+}
+
+#todoListContainer::-webkit-scrollbar {
+  display: none; /* it hides the scroll bar (Chrome, Safari) */
+}
+
+.todos {
+  border: 1px solid black;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* stops todos from shrinking */
+  padding: 4px 12px;
+  font-size: 1.2em;
+
+  span {
+    margin-right: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.doneTodos {
+  text-decoration: line-through;
+  opacity: 0.5;
+  background-color: rgb(82, 244, 82);
+  pointer-events: none;
+
+  & #editButton,
+  #doneButton {
+    display: none;
+  }
+
+  & .deleteButton {
+    pointer-events: auto; /* it allows cursor to change bcz none blocked the whole div so i need to add it */
+    cursor: pointer;
+  }
+}
+
+/* media queries for bigger screen */
+
+@media (min-width: 1400px) and (max-width: 1800px) {
+  #todoTitle {
+    font-size: 2rem;
+    color: #1918a4;
+  }
+
+  main {
+    width: 1000px;
+    height: 600px;
+  }
+
+  #inputContainer {
+    width: 700px;
+
+    input {
+      font-size: 20px;
+      height: 52px;
+
+      &::placeholder {
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  #todoListContainer {
+    width: 700px;
+    max-width: 1700px;
+    height: 500px;
+    background-size: contain;
+
+    .todos {
+      padding: 4px 12px;
+      font-size: 20px;
+    }
+  }
+  #clearButtonBox {
+    width: 700px;
+    max-width: 1700px;
+  }
+}
+
+/* media queries for smaller screen */
+@media (max-width: 480px) {
+  main {
+    width: 400px;
+  }
+
+  #inputContainer {
+    width: 300px;
+  }
+
+  #todoListContainer,
+  #clearButtonBox {
+    width: 300px;
+  }
+}
+
+@media (max-width: 380px) {
+  main {
+    width: 300px;
+  }
+
+  #inputContainer {
+    width: 250px;
+    input {
+      width: 200px;
+      &::placeholder {
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  #todoListContainer,
+  #clearButtonBox {
+    width: 250px;
+  }
+}
